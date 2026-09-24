@@ -171,12 +171,21 @@
       .brand .mark {
         width: 38px;
         height: 38px;
-        border-radius: 12px;
-        background: linear-gradient(160deg, #35a86a, var(--leaf));
         display: grid;
         place-items: center;
-        font-size: 20px;
-        box-shadow: var(--shadow-1);
+        flex: none;
+      }
+
+      .brand .mark img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      header.nav .brand .mark {
+        width: 52px;
+        height: 52px;
       }
 
       .nav-links {
@@ -619,6 +628,13 @@
         font-size: 76px;
         position: relative;
         overflow: hidden;
+      }
+
+      .phone .scan img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
       }
 
       .phone .scan::after {
@@ -1819,12 +1835,21 @@
         padding: 2px 8px 12px;
       }
       .device-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
         font-family: var(--display);
         font-weight: 800;
         font-size: 15px;
         color: #fff3ef;
         letter-spacing: 0.01em;
         text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+      }
+      .device-brand img {
+        width: 22px;
+        height: 22px;
+        object-fit: contain;
+        display: block;
       }
       .device-power {
         display: inline-flex;
@@ -2217,7 +2242,7 @@
     <header class="nav">
       <div class="wrap nav-inner">
         <div class="brand">
-          <span class="mark">🌱</span> guarden.space
+          <span class="mark"><img src="logo.png" alt="guarden.space logo" /></span> guarden.space
         </div>
         <nav class="nav-links">
           <a href="#how">How it works</a>
@@ -2230,16 +2255,12 @@
 
     <!-- ===== Hero ===== -->
     <section class="hero">
-      <span class="leaf-float" style="top: 120px; left: 8%">🍃</span>
-      <span class="leaf-float" style="top: 200px; right: 9%; animation-delay: 2s"
-        >🌿</span
-      >
       <!-- Retro handheld console: screen shows the living garden, the two
            CTAs are the device's buttons -->
       <div class="wrap">
         <div class="device">
           <div class="device-top">
-            <span class="device-brand">🌱 guarden.space</span>
+            <span class="device-brand"><img src="logo.png" alt="" /> guarden.space</span>
             <span class="device-power"><span class="led"></span> POWER</span>
           </div>
 
@@ -2248,9 +2269,9 @@
               <div id="garden3d" class="garden-3d" role="img" aria-label="A 3D garden space with trees and plants, and a sun that climbs and falls across the sky."></div>
             </div>
             <div class="screen-text">
-              <h1 id="heroTitle" data-line1="Turn your garden into a tiny world —" data-line2="and let AI tend it like a master botanist">
-                Turn your garden into a tiny world —<br />
-                <span class="hl">and let AI tend it like a master botanist</span>
+              <h1 id="heroTitle" data-line1="Let AI care for your plants like a botanist" data-line2="with a simulated mini world">
+                Let AI care for your plants like a botanist<br />
+                <span class="hl">with a simulated mini world</span>
               </h1>
             </div>
             <div class="scanlines" aria-hidden="true"></div>
@@ -2267,7 +2288,7 @@
 
             <div class="ab">
               <a href="#start" class="ctrl">
-                <span class="knob knob--a">🌻</span>
+                <span class="knob knob--a">A</span>
                 <span class="knob-label">Grow my garden</span>
               </a>
               <a href="#how" class="ctrl">
@@ -2301,7 +2322,6 @@
         <div class="steps">
           <div class="step">
             <span class="num">1</span>
-            <div class="emoji">📸</div>
             <h3>Snap your garden</h3>
             <p>
               Take a few photos from where your plants live. That's it — no
@@ -2310,7 +2330,6 @@
           </div>
           <div class="step">
             <span class="num">2</span>
-            <div class="emoji">🗺️</div>
             <h3>Watch it come alive</h3>
             <p>
               Your garden pops up as a cute little map, showing where the
@@ -2319,7 +2338,22 @@
           </div>
           <div class="step">
             <span class="num">3</span>
-            <div class="emoji">🎉</div>
+            <h3>Your own nutrition manager</h3>
+            <p>
+              A pro nutrition manager looks after every plant, giving each one
+              exactly the food it needs to grow strong.
+            </p>
+          </div>
+          <div class="step">
+            <span class="num">4</span>
+            <h3>A doctor for your plants</h3>
+            <p>
+              Spot something off? Your plant doctor identifies the disease and
+              gives you the exact steps to nurse it back to health.
+            </p>
+          </div>
+          <div class="step">
+            <span class="num">5</span>
             <h3>Just follow along</h3>
             <p>
               Your helper tells you what to do and when. You do the fun part and
@@ -2397,7 +2431,6 @@
             </p>
             <div class="tech-list">
               <div class="tech">
-                <div class="tic">🛰️</div>
                 <div>
                   <h3>True solar geometry</h3>
                   <p>
@@ -2408,7 +2441,6 @@
                 </div>
               </div>
               <div class="tech">
-                <div class="tic">🌳</div>
                 <div>
                   <h3>Shadow casting</h3>
                   <p>
@@ -2419,7 +2451,6 @@
                 </div>
               </div>
               <div class="tech">
-                <div class="tic">🌡️</div>
                 <div>
                   <h3>Contrast-stretched heat-map</h3>
                   <p>
@@ -2474,7 +2505,6 @@
             </p>
             <div class="tech-list">
               <div class="tech">
-                <div class="tic">👁️‍🗨️</div>
                 <div>
                   <h3>Vision + dialogue fused</h3>
                   <p>
@@ -2485,7 +2515,6 @@
                 </div>
               </div>
               <div class="tech">
-                <div class="tic">🧠</div>
                 <div>
                   <h3>Longitudinal memory</h3>
                   <p>
@@ -2496,7 +2525,6 @@
                 </div>
               </div>
               <div class="tech">
-                <div class="tic">🔁</div>
                 <div>
                   <h3>Closed-loop cure</h3>
                   <p>
@@ -2567,7 +2595,6 @@
             </p>
             <div class="tech-list">
               <div class="tech">
-                <div class="tic">⚖️</div>
                 <div>
                   <h3>Need-first, not sell-first</h3>
                   <p>
@@ -2578,7 +2605,6 @@
                 </div>
               </div>
               <div class="tech">
-                <div class="tic">🧾</div>
                 <div>
                   <h3>Exact, real-world doses</h3>
                   <p>
@@ -2589,7 +2615,6 @@
                 </div>
               </div>
               <div class="tech">
-                <div class="tic">🛡️</div>
                 <div>
                   <h3>Anti-overdose guardrails</h3>
                   <p>
@@ -2627,47 +2652,43 @@
 
         <div class="grid">
           <div class="card" style="--glow: rgba(228, 162, 51, 0.18)">
-            <div class="ic">☀️</div>
             <h3>Your very own sunshine map</h3>
             <p>
               Upload photos and your garden turns into a living map that shows
               exactly where the sun shines — and for how long. Finally know the
               sunny spots from the shady ones without guessing.
             </p>
-            <span class="tag">🔆 Sunlight, solved</span>
+            <span class="tag">Sunlight, solved</span>
           </div>
 
           <div class="card" style="--glow: rgba(30, 122, 75, 0.16)">
-            <div class="ic">🧪</div>
             <h3>The right food, every time</h3>
             <p>
               Never wonder “am I feeding this right?” again. Your helper picks
               the perfect food for each plant and gives you a simple, friendly
               schedule to follow.
             </p>
-            <span class="tag">🍽️ Feeding made easy</span>
+            <span class="tag">Feeding made easy</span>
           </div>
 
           <div class="card" style="--glow: rgba(178, 58, 38, 0.16)">
-            <div class="ic">🛡️</div>
             <h3>Keep the bad bugs out</h3>
             <p>
               Pesky pests don't stand a chance. Get simple, plant-by-plant
               protection tips so your leaves stay green and your garden stays
               happy.
             </p>
-            <span class="tag">🐛 Bugs, blocked</span>
+            <span class="tag">Bugs, blocked</span>
           </div>
 
           <div class="card" style="--glow: rgba(30, 122, 75, 0.16)">
-            <div class="ic">🩺</div>
             <h3>A plant doctor in your pocket</h3>
             <p>
               Something looking sad? Snap a photo, say what's wrong, and get a
               clear plan to nurse it back to health — with reminders that track
               the recovery until it's smiling again.
             </p>
-            <span class="tag">💚 Rescue &amp; heal</span>
+            <span class="tag">Rescue &amp; heal</span>
           </div>
         </div>
 
@@ -2707,17 +2728,18 @@
             </li>
           </ul>
           <div class="hero-cta" style="justify-content: flex-start; margin-top: 28px">
-            <a href="#start" class="btn btn--sun">🩺 Try the Plant Doctor</a>
+            <a href="#start" class="btn btn--sun">Try the Plant Doctor</a>
           </div>
         </div>
 
         <div class="phone">
-          <div class="scan">🌿</div>
+          <div class="scan"><img src="strawberry.jpeg" alt="Strawberry plant with gray mold on the fruit and leaves" /></div>
           <div class="verdict">
-            <div class="row1">✅ Good news — easy fix!</div>
+            <div class="row1">Spotted it — gray mold (Botrytis)</div>
             <div class="row2">
-              Your basil is just thirsty and needs a sunnier spot. Here's your
-              3-day plan…
+              Your strawberry has gray mold. Snip the affected fruit and leaves,
+              open up airflow, and ease off the watering. Here's your 3-day
+              recovery plan…
             </div>
           </div>
         </div>
@@ -2728,49 +2750,8 @@
     <section id="loves" class="features">
       <div class="wrap">
         <div class="sec-head">
-          <span class="eyebrow">Loved by everyday gardeners</span>
-          <h2>People who “kill every plant” are winning</h2>
-        </div>
-        <div class="loves">
-          <div class="love">
-            <div class="stars">★★★★★</div>
-            <p>
-              “I've killed every plant I've ever owned. This is the first year my
-              balcony actually looks alive. It's honestly addictive!”
-            </p>
-            <div class="who">
-              <span class="av">👩</span>
-              <div>
-                <b>Meera K.</b><span>Balcony gardener</span>
-              </div>
-            </div>
-          </div>
-          <div class="love">
-            <div class="stars">★★★★★</div>
-            <p>
-              “It feels like a game. My kids check the little garden map every
-              morning to see where the sun is. We all love it.”
-            </p>
-            <div class="who">
-              <span class="av">👨</span>
-              <div>
-                <b>Daniel R.</b><span>Weekend dad</span>
-              </div>
-            </div>
-          </div>
-          <div class="love">
-            <div class="stars">★★★★★</div>
-            <p>
-              “I never understood any of the plant-care stuff before. Now I just
-              do what it says and everything is thriving. Magic.”
-            </p>
-            <div class="who">
-              <span class="av">👵</span>
-              <div>
-                <b>Rosa P.</b><span>Retired &amp; loving it</span>
-              </div>
-            </div>
-          </div>
+          <span class="eyebrow">Early access</span>
+          <h2>Early access users are already loving it</h2>
         </div>
       </div>
     </section>
@@ -2786,7 +2767,7 @@
             you'd expect.
           </p>
           <div class="hero-cta">
-            <a href="/app" class="btn btn--sun">🌱 Start my garden — it's free</a>
+            <a href="/app" class="btn btn--sun">Start my garden — it's free</a>
           </div>
         </div>
       </div>
@@ -2795,14 +2776,14 @@
     <!-- ===== Footer ===== -->
     <footer>
       <div class="wrap">
-        <div class="brand"><span class="mark">🌱</span> guarden.space</div>
+        <div class="brand"><span class="mark"><img src="logo.png" alt="guarden.space logo" /></span> guarden.space</div>
         <div class="flinks">
           <a href="#how">How it works</a>
           <a href="#features">What it does</a>
           <a href="#loves">Reviews</a>
           <a href="#start">Get started</a>
         </div>
-        <small>© 2026 guarden.space · Made with 💚 for gardens everywhere</small>
+        <small>© 2026 guarden.space · Made for gardens everywhere</small>
       </div>
     </footer>
 
@@ -3236,11 +3217,11 @@
           labels.push(sp);
           return sp;
         }
-        makeLabel("💧 Water needed", "#2f8fd0", [3.4, 2.2, -1.2]);
-        makeLabel("🧪 Mulberry needs NPK", "#1e7a4b", [-3.5, 2.7, -3.5]);
-        makeLabel("☀️ Loves full sun", "#e4a233", [-1.4, 2.0, 1.2]);
-        makeLabel("🌱 Doing great", "#3fae63", [5.2, 2.0, -4.4]);
-        makeLabel("🐛 Check for pests", "#b23a26", [0.9, 2.3, -5.2]);
+        makeLabel("Water needed", "#2f8fd0", [3.4, 2.2, -1.2]);
+        makeLabel("Mulberry needs NPK", "#1e7a4b", [-3.5, 2.7, -3.5]);
+        makeLabel("Loves full sun", "#e4a233", [-1.4, 2.0, 1.2]);
+        makeLabel("Doing great", "#3fae63", [5.2, 2.0, -4.4]);
+        makeLabel("Check for pests", "#b23a26", [0.9, 2.3, -5.2]);
 
         var cNoon = new THREE.Color(0xfff2c4), cWarm = new THREE.Color(0xff8a4c);
         var skyDay = new THREE.Color(0xbfe6f5), skyDusk = new THREE.Color(0xf6b06a);
