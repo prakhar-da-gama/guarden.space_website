@@ -144,22 +144,12 @@
 
       /* ---------- Nav ---------- */
       header.nav {
-        position: fixed;
+        position: sticky;
         top: 0;
-        left: 0;
-        right: 0;
         z-index: 50;
         backdrop-filter: blur(10px);
         background: rgba(238, 241, 233, 0.8);
         border-bottom: 1px solid var(--line);
-        /* hidden on the hero (page 1); slides in once the visitor reaches the
-           "Three easy taps" section (toggled by JS). */
-        transform: translateY(-105%);
-        transition: transform 0.4s ease;
-        will-change: transform;
-      }
-      header.nav.nav--show {
-        transform: translateY(0);
       }
 
       .nav-inner {
@@ -2118,38 +2108,106 @@
 
       @media (max-width: 560px) {
         .device {
-          border-radius: 30px;
-          padding: 16px 16px 20px;
+          border-radius: 28px;
+          padding: 14px 12px 18px;
         }
+        .device-top {
+          padding: 2px 4px 10px;
+        }
+        .device-brand {
+          font-size: 13px;
+        }
+        .device-power {
+          font-size: 9.5px;
+        }
+
+        .screen {
+          padding: 10px;
+          border-radius: 16px;
+        }
+        .screen .map {
+          border-radius: 10px;
+        }
+        .screen-text {
+          top: 10px;
+          left: 10px;
+          right: 10px;
+          padding: 14px 12px 0;
+        }
+
+        /* controls: wrap and centre so they can never overflow the shell */
         .pad {
-          gap: 12px;
-          padding: 4px 2px 0;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 16px 20px;
+          margin-top: 16px;
+          padding: 4px 0 0;
         }
+
+        /* d-pad: reposition the buttons for the smaller pad */
         .dpad {
-          width: 72px;
-          height: 72px;
+          width: 80px;
+          height: 80px;
         }
-        .dpad::before {
-          left: 27px;
-          width: 18px;
-          height: 66px;
+        .dpad-center {
+          left: 28px;
+          top: 28px;
+          width: 24px;
+          height: 24px;
         }
-        .dpad::after {
-          top: 27px;
-          width: 66px;
-          height: 18px;
+        .dbtn {
+          width: 28px;
+          height: 28px;
+          font-size: 10px;
+        }
+        .dbtn--up {
+          left: 26px;
+          top: 2px;
+        }
+        .dbtn--down {
+          left: 26px;
+          top: 50px;
+        }
+        .dbtn--left {
+          left: 2px;
+          top: 26px;
+        }
+        .dbtn--right {
+          left: 50px;
+          top: 26px;
+        }
+
+        .ab {
+          gap: 18px;
+          flex-wrap: wrap;
+          justify-content: center;
         }
         .knob {
-          width: 56px;
-          height: 56px;
-          font-size: 22px;
-        }
-        .ab {
-          gap: 14px;
+          width: 54px;
+          height: 54px;
+          font-size: 21px;
         }
         .knob-label {
-          font-size: 11px;
-          padding: 3px 9px;
+          font-size: 10.5px;
+          padding: 3px 8px;
+          max-width: 96px;
+          text-align: center;
+          white-space: normal;
+          line-height: 1.2;
+          border-radius: 12px;
+        }
+
+        .device-foot {
+          justify-content: center;
+          gap: 6px 14px;
+          margin-top: 16px;
+          padding: 0 4px;
+        }
+        .startsel {
+          font-size: 9.5px;
+        }
+        .speaker {
+          display: none;
         }
       }
     </style>
@@ -2194,11 +2252,6 @@
                 Turn your garden into a tiny world —<br />
                 <span class="hl">and let AI tend it like a master botanist</span>
               </h1>
-              <p class="sub">
-                Snap a few photos of your plants and watch your real garden
-                come alive as a little map — with a friendly helper that always
-                knows exactly what every plant needs to be happy.
-              </p>
             </div>
             <div class="scanlines" aria-hidden="true"></div>
           </div>
@@ -3247,25 +3300,6 @@
           renderer.render(scene, camera);
         }
         animate();
-      })();
-
-      // Header is hidden over the hero (page 1) and slides in once the visitor
-      // scrolls to the "Three easy taps / So simple, it feels like play" section.
-      (function navReveal() {
-        var nav = document.querySelector("header.nav");
-        var hero = document.querySelector(".hero");
-        if (!nav || !hero || !("IntersectionObserver" in window)) {
-          if (nav) nav.classList.add("nav--show");
-          return;
-        }
-        var io = new IntersectionObserver(
-          function (entries) {
-            // Show the nav once the hero has scrolled out of view.
-            nav.classList.toggle("nav--show", !entries[0].isIntersecting);
-          },
-          { threshold: 0 }
-        );
-        io.observe(hero);
       })();
 
       // D-pad controls: DOWN jumps to the "Under the hood" section; UP / LEFT /
